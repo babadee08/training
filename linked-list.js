@@ -58,6 +58,18 @@ LinkedList.prototype.removeTail = function () {
     return val;
 }
 
+LinkedList.prototype.search = function (searchValue) {
+    var currentNode = this.head;
+
+    while (currentNode) {
+        if (searchValue == currentNode.value) {
+            return currentNode.value;
+        }
+        currentNode = currentNode.next;
+    }
+    return null;
+}
+
 /**
  * The code below is for testing
  * the above functions
@@ -70,7 +82,10 @@ ll.addToHead(200);
 ll.addToHead(50);
 ll.addToTail(300);
 ll.addToTail(93);
+ll.addToTail('weed');
 
-console.log(ll.removeHead());
-console.log(ll.removeTail());
-console.log(ll);
+// console.log(ll.removeHead());
+// console.log(ll.removeTail());
+// console.log(ll);
+
+console.log(ll.search('weed'));

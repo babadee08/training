@@ -70,6 +70,21 @@ LinkedList.prototype.search = function (searchValue) {
     return null;
 }
 
+LinkedList.prototype.indexOf = function (value) { 
+    var currentNode = this.head;
+    var result = [];
+    var position = 0;
+    
+    while (currentNode) {
+        if (value == currentNode.value) {
+            result.push(position);
+        }
+        currentNode = currentNode.next;
+        position++;
+    }
+    return result;
+};
+
 /**
  * The code below is for testing
  * the above functions
@@ -77,7 +92,7 @@ LinkedList.prototype.search = function (searchValue) {
 
 var ll = new LinkedList();
 
-ll.addToHead(100);
+/*ll.addToHead(100);
 ll.addToHead(200);
 ll.addToHead(50);
 ll.addToTail(300);
@@ -88,4 +103,11 @@ ll.addToTail('weed');
 // console.log(ll.removeTail());
 // console.log(ll);
 
-console.log(ll.search('weed'));
+console.log(ll.search('weed'));*/
+
+ll.addToHead(3);
+ll.addToTail(5);
+ll.addToTail(3);
+ll.addToTail(8);
+
+console.log(ll.indexOf(3));

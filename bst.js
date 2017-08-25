@@ -63,7 +63,7 @@ BST.prototype.breadthFirstTravasal = function (iteratorFunc) {
 
     while (queue.length) {
         var treeNode = queue.shift();
-        iteratorFunc(treeNode);
+        iteratorFunc(treeNode.value);
         if (treeNode.left) {
             queue.push(treeNode.left);
         }
@@ -72,6 +72,22 @@ BST.prototype.breadthFirstTravasal = function (iteratorFunc) {
         }
     }
 };
+
+BST.prototype.getMinVal = function () {
+    if (this.left) {
+        return this.left.getMinVal();
+    } else {
+        return this.value;
+    }
+};
+
+BST.prototype.getMaxVal = function () {
+    if (this.right) {
+        return this.right.getMaxVal();
+    } else {
+        return this.value;
+    }
+}
 
 var bst = new BST(50);
 bst.insert(30);
@@ -97,3 +113,8 @@ bst.depthFirstTravasal(log, 'post-order');
 function log(value) {
     console.log(value);
 }
+
+bst.breadthFirstTravasal(log);
+
+console.log(`Max: ${bst.getMaxVal()}`);
+console.log(`Min: ${bst.getMinVal()}`);

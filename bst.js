@@ -40,13 +40,21 @@ BST.prototype.contains = function (value) {
     }
 };
 
-BST.prototype.depthFirstTravasal = function (iteratorFunc) {
-    if (this.left) {
-        this.left.depthFirstTravasal(iteratorFunc);
+BST.prototype.depthFirstTravasal = function (iteratorFunc, order) {
+    if (order === 'pre-order') {
+        iteratorFunc(this.value);
     }
-    iteratorFunc(this.value);
+    if (this.left) {
+        this.left.depthFirstTravasal(iteratorFunc, order);
+    }
+    if (order === 'in-order') {
+        iteratorFunc(this.value);
+    }
     if (this.right) {
-        this.right.depthFirstTravasal(iteratorFunc);
+        this.right.depthFirstTravasal(iteratorFunc, order);
+    }
+    if (order === 'post-order') {
+        iteratorFunc(this.value);
     }
 };
 
@@ -67,7 +75,9 @@ console.log(bst.right.right);
 
 console.log(bst.contains(99));
 
-bst.depthFirstTravasal(log);
+//bst.depthFirstTravasal(log, 'in-order');
+//bst.depthFirstTravasal(log, 'pre-order');
+bst.depthFirstTravasal(log, 'post-order');
 
 function log(value) {
     console.log(value);

@@ -52,12 +52,30 @@ HashTable.prototype.get = function (key) {
     }
 }
 
+HashTable.prototype.retrieveAll = function () {
+    var result = [];
+
+    for (var i = 0; i < this.numBuckets; i++) {
+        var currentNode = this.buckets[i];
+        while (currentNode) {
+            result.push(currentNode);
+            currentNode = currentNode.next;
+        }
+    }
+
+    return result;
+}
+
 var myHT = new HashTable(30);
-console.log(myHT.insert('Dean', 'deen@gmail.com'));
-console.log(myHT.insert('Megan', 'megan@gmail.com'));
-console.log(myHT.insert('Dane', 'dane@yahoo.com'));
-console.log(myHT.insert('Dean', 'deanmachine@googlemail.com'));
-console.log(myHT.buckets);
+myHT.insert('Dean', 'deen@gmail.com');
+myHT.insert('Megan', 'megan@gmail.com');
+myHT.insert('Dane', 'dane@yahoo.com');
+myHT.insert('Dean', 'deanmachine@googlemail.com');
+
+//console.log(myHT.get('Dean'));
+
+//console.log(myHT.buckets);
+console.log(myHT.retrieveAll());
 
 // charCodeAt and Modulus operator
 /*console.log('hello world'.charCodeAt(5));

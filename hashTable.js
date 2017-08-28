@@ -22,9 +22,15 @@ HashTable.prototype.insert = function (key, value) {
     var index = this.hash(key);
     if (!this.buckets[index]) {
         this.buckets[index] = new HashNode(key, value);
+    } else if (this.buckets[index].key === key) {
+        this.buckets[index].value = value;
     } else {
         var currentNode = this.buckets[index];
         while (currentNode.next) {
+            if (currentNode.next.key === key) {
+                currentNode.next.value = value;
+                return;
+            }
             currentNode = currentNode.next;
         }
         currentNode.next = new HashNode(key, value);
@@ -32,8 +38,11 @@ HashTable.prototype.insert = function (key, value) {
 }
 
 var myHT = new HashTable(30);
-//console.log(myHT);
-console.log(myHT.hash('Becca'));
+console.log(myHT.insert('Dean', 'deen@gmail.com'));
+console.log(myHT.insert('Megan', 'megan@gmail.com'));
+console.log(myHT.insert('Dane', 'dane@yahoo.com'));
+console.log(myHT.insert('Dean', 'deanmachine@googlemail.com'));
+console.log(myHT.buckets);
 
 // charCodeAt and Modulus operator
 /*console.log('hello world'.charCodeAt(5));

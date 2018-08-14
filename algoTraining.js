@@ -99,12 +99,12 @@ function reverseArrayInPLace(arr) {
 }
 
 
-console.log(fizbuzz(20));
-console.log(harmlessRansomNote('this is a secret note for you from a secret admirer', 'puerto rico is a place of great wonder and excitement it has many secret waterfall locatoins that i am an admirer of you must hike quite a distance to find the secret places as they are far from populated areas but it is worth the effort a tip i have for you is to go early in the morning when it is not so hot out also note that you must wear hiking boots this is one of the best places i have ever visited'));
+//console.log(fizbuzz(20));
+//console.log(harmlessRansomNote('this is a secret note for you from a secret admirer', 'puerto rico is a place of great wonder and excitement it has many secret waterfall locatoins that i am an admirer of you must hike quite a distance to find the secret places as they are far from populated areas but it is worth the effort a tip i have for you is to go early in the morning when it is not so hot out also note that you must wear hiking boots this is one of the best places i have ever visited'));
 console.log(isPalindrome("Madam, I'm Adam"));
-console.log(caesarCipher('Zoo Keeper', 2));
-console.log(reverseWords('This is a word'));
-console.log(reverseArrayInPLace([1,2,3,4,5,6,7,8,9,0]));
+//console.log(caesarCipher('Zoo Keeper', 2));
+//console.log(reverseWords('This is a word'));
+//console.log(reverseArrayInPLace([1,2,3,4,5,6,7,8,9,0]));
 
 
 
